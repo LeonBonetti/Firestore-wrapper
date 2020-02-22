@@ -1,0 +1,41 @@
+{
+  "name": "firestore-wrapper",
+  "version": "1.0.0",
+  "description": "Typing your firestore database and avoid access errors on development",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:commonjs": "rimraf lib && tsc --target es5 --outDir lib --module commonjs --declaration",
+    "build:es": "rimraf es && tsc --target es6 --outDir es --module es6",
+    "build": "npm run build:commonjs && npm run build:es",
+    "ts": "ts-node src/",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonBonetti/Firestore-wrapper.git"
+  },
+  "keywords": [
+    "Firestore",
+    "Typescript",
+    "NodeJs"
+  ],
+  "author": "Leonardo Bonetti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonBonetti/Firestore-wrapper/issues"
+  },
+  "homepage": "https://github.com/LeonBonetti/Firestore-wrapper#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "types": "./lib/index.d.ts",
+  "jsnext:main": "./es/index.js",
+  "module": "./es/index.js"
+}

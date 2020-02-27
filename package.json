@@ -1,6 +1,6 @@
 {
   "name": "firestore-wrapper",
-  "version": "1.0.0",
+  "version": "0.0.6",
   "description": "Typing your firestore database and avoid access errors on development",
   "main": "./lib/index.js",
   "scripts": {

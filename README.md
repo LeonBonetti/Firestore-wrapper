@@ -36,7 +36,7 @@ interface Locations {
 ```
 import * as firebase from "firebase-admin";
 import Credentials from "../Credentials.json";
-import wrapper from "firestore-wrapper";
+import { root } from "firestore-wrapper";
 import databaseSchema from './database';
 
 const firebaseSdk = firebase.initializeApp({
@@ -44,7 +44,7 @@ const firebaseSdk = firebase.initializeApp({
     databaseURL: "https://any-project.firebaseio.com"  
 });
 
-const db = wrapper.root<databaseSchema>(firebaseSdk.firestore() as any);
+const db = root<databaseSchema>(firebaseSdk.firestore() as any);
 ```
 
 ## 3) Now, all firestore functions is typing with your database schema

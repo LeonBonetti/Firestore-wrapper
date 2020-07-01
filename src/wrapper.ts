@@ -117,7 +117,7 @@ export interface Query<T> {
 }
 
 export interface DocumentSnapshot<T> {
-  data(): T | null;
+  data(): T;
   get<K extends keyof T>(fieldPath: keyof T[K]): any;
   isEqual(other: DocumentSnapshot<T>): boolean;
   id: string;
@@ -132,6 +132,7 @@ export interface DocumentReference<T> {
   delete(precondition?: any): Promise<any>;
   get(): Promise<DocumentSnapshot<T>>;
   isEqual(other: DocumentReference<T>): boolean;
+  path: string;
 }
 
 export interface CollectionReference<T> extends Query<T> {
@@ -141,6 +142,7 @@ export interface CollectionReference<T> extends Query<T> {
   // doc(): DocumentReference<T>;
   add(data: T): Promise<DocumentReference<T>>;
   isEqual(other: CollectionReference<T>): boolean;
+  path: string;
 }
 
 export interface DatabaseWrapper<T> {
@@ -155,7 +157,6 @@ export interface DatabaseWrapper<T> {
   ): Promise<T | any>;
   batch(): WriteBatch<T | any>;
 }
-
 export function root<T>(db: DatabaseWrapper<any>): DatabaseWrapper<T> {
   return db as DatabaseWrapper<T>;
 }
